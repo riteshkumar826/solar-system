@@ -3,240 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Solar System Simulation</title>
     <style>
-        body{
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(0, 0, 0);
-    overflow: hidden;
-}
-.container{
-    font-size: 6px;
-    width: 40em;
-    height: 40em;
-    position: relative;
-}
-img{
-    height: 130%;
-    width: 130%;
-}
-.sun{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 15em;
-    top: 15em;
-    width: 10em;
-    height: 10em;
-    background-image: url(https://th.bing.com/th/id/OIP.qJIUZqjuz2FSWJw1lZLz0QHaHa?rs=1&pid=ImgDetMain);
-    box-shadow: 0 0 3em rgb(225 , 128, 0);
-    border-radius: 50%;
-    animation: orbit 50s linear infinite;
-}
-.mercury,.venus,.earth,.moon,.mars,.jupiter,.saturn,.uranus,.neptune{
-    position: absolute;
-    border-style: solid;
-    /* border-color: white transparent; */
-    border-width: 0.1em 0.1em 0 0;
-    border-radius: 50%;
-}
-.mercury{
-    top: 12.5em;
-    left: 12.5em;
-    width: 15em;
-    height: 15em;
-    animation: orbit 68.7s linear infinite;
-}
-.venus{
-    top: 10em;
-    left: 10em;
-    width: 20em;
-    height: 20em;
-    animation: orbit 48.7s linear infinite;
-    
-}
-.earth{
-    top: 6em;
-    left: 6em;
-    width: 28em;
-    height: 28em;
-    animation: orbit 36.5s linear infinite;
-    
-}
-/* .moon{
-    top: 2em;
-    right: -1em;
-    width: 7em;
-    height: 7em;
-    animation: orbit 2.7s linear infinite;
-    
-} */
-.mars{
-    top: 2em;
-    left: 2.5em;
-    width: 36em;
-    height: 36em;
-    animation: orbit 26.5s linear infinite;
-    
-}
-.jupiter{
-    top: -2em;
-    left: -2em;
-    width: 45em;
-    height: 45em;
-    animation: orbit 21s linear infinite;
-    
-}
-.saturn{
-    top: -7em;
-    left: -7em;
-    width: 55em;
-    height: 55em;
-    animation: orbit 17s linear infinite;
-    
-}
-.uranus{
-    top: -12em;
-    left: -12em;
-    width: 65em;
-    height: 65em;
-    animation: orbit 19s linear infinite;
-    
-}
-.neptune{
-    top: -17em;
-    left: -17em;
-    width: 75em;
-    height: 75em;
-    animation: orbit 15s linear infinite;
-    
-}
-.mercury::before,.venus::before,.earth::before,.moon::before,.mars::before,.jupiter::before,.saturn::before,
-.uranus::before,.neptune::before{
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    animation: orbit 50s linear infinite;
-}
-.mercury::before{
-    top: 1.5em;
-    right: 0.8em;
-    width: 2em;
-    height: 2em;
-    background-image: url(https://images.pexels.com/photos/20376390/pexels-photo-20376390/free-photo-of-wallpaper-with-moon.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-size: cover;
-}
-.venus::before{
-    top: 2em;
-    right: 2em;
-    width: 2em;
-    height: 2em;
-    background-image: url(https://images.pexels.com/photos/12498793/pexels-photo-12498793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-size: cover;
-}
-.earth::before{
-    top: 3em;
-    right: 0.8em;
-    width: 5em;
-    height: 5em;
-    background-image: url(https://images.pexels.com/photos/355935/pexels-photo-355935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-size: cover;
-}
-/* .moon::before{
-    top: 0.8em;
-    right: 0.2em;
-    width: 1.2em;
-    height: 1.2em;
-    background-image: url(https://images.pexels.com/photos/47367/full-moon-moon-bright-sky-47367.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-size: cover;
-} */
-.mars::before{
-    top: 5em;
-    right: 3em;
-    width: 3em;
-    height: 3em;
-    background-image: url(https://static.scientificamerican.com/sciam/cache/file/C454F5A6-536E-4C9F-AA6AF354BB85A85B_source.jpg?w=1200);
-    background-size: cover;
-}
-.jupiter::before{
-    top: 6em;
-    right: 3em;
-    width: 5em;
-    height: 5em;
-    background-image: url(https://images.pexels.com/photos/12498752/pexels-photo-12498752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-size: cover;
-}
-.saturn::before{
-    top: 7.5em;
-    right: 5em;
-    width: 4.5em;
-    height: 4.5em;
-    background-image:url(https://cf-img-a-in.tosshub.com/sites/visualstory/wp/2024/06/Saturn1.jpeg?size=*:675);
-    background-size: cover;
-}
-.uranus::before{
-    top: 9em;
-    right: 6.5em;
-    width: 4em;
-    height: 4em;
-    background-image: url(https://images.pexels.com/photos/20337604/pexels-photo-20337604/free-photo-of-planet-with-rings.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-size: cover;
-}
-.neptune::before{
-    top: 10em;
-    right: 8em;
-    width: 4em;
-    height: 4em;
-    background-image: url(https://images.pexels.com/photos/12498810/pexels-photo-12498810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-size: cover;
-}
-.star{
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    z-index: -1;
-}
-@keyframes orbit{
-    to{
-        transform: rotate(360deg);
-    }
-}
+        /* Basic styles */
+        body {
+            margin: 0;
+            background: black;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            background-image: url(https://api.time.com/wp-content/uploads/2017/10/229-westerlund-21.jpg?quality=85&w=1012);
+        }
+
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.1;
+            }
+        }
+
+        .solar-system {
+            position: relative;
+            width: 800px;
+            height: 800px;
+        }
+
+        /* Sun */
+        .sun {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, yellow, orange, red);
+            border-radius: 50%;
+            box-shadow: 0 0 50px 20px orange, 0 0 100px 40px yellow;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Planet orbits */
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: rotate infinite linear;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .orbit[data-speed="slow"] {
+            animation-duration: 10s;
+        }
+
+        .orbit[data-speed="medium"] {
+            animation-duration: 7s;
+        }
+
+        .orbit[data-speed="fast"] {
+            animation-duration: 3s;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Planets */
+        .planet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgb(233, 2, 2);
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .planet[data-planet="mercury"] {
+            background: rgba(127, 162, 122, 0.761);
+            width: 8px;
+            height: 8px;
+        }
+
+        .planet[data-planet="venus"] {
+            background: rgba(73, 157, 62, 0.754);
+            width: 15px;
+            height: 15px;
+        }
+
+        .planet[data-planet="earth"] {
+            background: blue;
+            width: 18px;
+            height: 18px;
+        }
+
+        .planet[data-planet="mars"] {
+            background: red;
+            width: 12px;
+            height: 12px;
+        }
+
+        .planet[data-planet="jupiter"] {
+            background: orange;
+            width: 40px;
+            height: 40px;
+        }
+
+        .planet[data-planet="saturn"] {
+            background: lightgoldenrodyellow;
+            width: 35px;
+            height: 35px;
+        }
+
+        .planet[data-planet="uranus"] {
+            background: rgb(14, 150, 195);
+            width: 30px;
+            height: 30px;
+        }
+
+        .planet[data-planet="neptune"] {
+            background: rgb(209, 209, 219);
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Saturn's ring */
+        .ring {
+            position: absolute;
+            border: 1px solid rgba(200, 200, 0, 0.5);
+            border-radius: 50%;
+            width: 60px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(15deg);
+        }
     </style>
 </head>
 <body>
-  <div class="container">
-    <div class="sun"><img src="https://images.pexels.com/photos/87611/sun-fireball-solar-flare-sunlight-87611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="sun"></div>
-    <div class="mercury"></div>
-    <div class="venus"></div>
-    <div class="earth">
-        <!-- <div class="moon"></div> -->
+    <div class="stars"></div>
+    <div class="solar-system">
+        <!-- The Sun -->
+        <div class="sun"></div>
+
+        <!-- Orbits and Planets -->
+        <div class="orbit" style="width: 120px; height: 120px;" data-speed="fast">
+            <div class="planet" data-planet="mercury"></div>
+        </div>
+        <div class="orbit" style="width: 200px; height: 200px;" data-speed="medium">
+            <div class="planet" data-planet="venus"></div>
+        </div>
+        <div class="orbit" style="width: 300px; height: 300px;" data-speed="slow">
+            <div class="planet" data-planet="earth"></div>
+        </div>
+        <div class="orbit" style="width: 400px; height: 400px;" data-speed="slow">
+            <div class="planet" data-planet="mars"></div>
+        </div>
+        <div class="orbit" style="width: 550px; height: 550px;" data-speed="medium">
+            <div class="planet" data-planet="jupiter"></div>
+        </div>
+        <div class="orbit" style="width: 700px; height: 700px;" data-speed="medium">
+            <div class="planet" data-planet="saturn">
+                <div class="ring"></div>
+            </div>
+        </div>
+        <div class="orbit" style="width: 800px; height: 800px;" data-speed="medium">
+            <div class="planet" data-planet="uranus"></div>
+        </div>
+        <div class="orbit" style="width: 900px; height: 900px;" data-speed="slow">
+            <div class="planet" data-planet="neptune"></div>
+        </div>
     </div>
-    <div class="mars"></div>
-    <div class="jupiter"></div>
-    <div class="saturn"></div>
-    <div class="uranus"></div>
-    <div class="neptune"></div>
-    </div>
-    <script src="./script.js">
-        function createStars(){
-    const container = document.querySelector("body");
-    for(let i=0; i < 1000; i++){
-    const star = document.createElement("div");
-    star.className = "star";
-    star.style.width = ".1px";
-    star.style.height = ".1px";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.left = Math.random() * 100 + "%";
-    container.appendChild(star);
-    }
-}
-createStars();
+
+    <script>
+        // Generate stars in the background
+        const starsContainer = document.querySelector('.stars');
+        const numStars = 200;
+
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            starsContainer.appendChild(star);
+        }
     </script>
 </body>
 </html>
